@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeong-Woo Son Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>손정우 · Jeong-Woo Son</h1>
+      <p>
+        기계공학과 AI에 관심을 가지고,
+        아이디어를 직접 구현하는 것을 좋아하는 학생입니다.
+      </p>
+    </header>
+
+    <section>
+      <h2>1. About Me</h2>
+
+      <p>
+        아두이노·센서·로봇 제작 프로젝트를 진행하며
+        기계공학과 프로그래밍에 관심을 가지게 되었고,
+        이후 머신러닝과 알고리즘 분야로 관심을 확장했습니다.
+      </p>
+
+      <p>
+        직접 구현하고 실험해보는 과정을 좋아하며,
+        최근에는 AI 모델의 표현 구조와 일반화 문제에
+        관심을 가지고 공부하고 있습니다.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Coursework</h2>
+
+      <div class="card">
+        <h3>컴퓨터과학 I</h3>
+        <p>Python 기초 · 파일 입출력 · 기초 알고리즘</p>
+      </div>
+
+      <div class="card">
+        <h3>컴퓨터과학 II</h3>
+        <p>정규표현식 · 탐색 및 정렬 · 객체지향 프로그래밍</p>
+      </div>
+
+      <div class="card">
+        <h3>데이터 과학</h3>
+        <p>Pandas · NumPy · EDA · 기초 머신러닝</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Projects</h2>
+
+      <div class="card">
+        <h3>로봇 머신러닝 기반 이동 최적화</h3>
+        <p>머신러닝 기반 로봇 이동 제어 최적화 프로젝트.</p>
+
+        <div class="tech">
+          Python · ML · Robotics
+        </div>
+
+        <button onclick="toggleDetail('robot')">
+          자세히 보기
+        </button>
+
+        <div class="detail" id="robot">
+          <p>
+            학교 과제연구로 진행 중인 프로젝트입니다.
+            머신러닝을 활용해 로봇 이동 제어를 최적화하고 있습니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Gemini LaTeX 렌더링 복원 확장 프로그램</h3>
+        <p>깨진 LaTeX 수식을 복원하는 Chrome Extension.</p>
+
+        <div class="tech">
+          JavaScript · Chrome Extension
+        </div>
+
+        <button onclick="toggleDetail('latex')">
+          자세히 보기
+        </button>
+
+        <div class="detail" id="latex">
+          <p>
+            DOM 기반 문자열 탐지 및 파싱을 통해
+            깨진 수식을 자동 복원하도록 구현했습니다.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2>4. Research</h2>
+
+      <div class="card">
+        <h3>
+          신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석
+        </h3>
+
+        <p>
+          신경망의 일반화 실패를 기하학적으로 해석하는 개인 연구.
+        </p>
+
+        <div class="tech">
+          Representation Learning · Geometry · Topology
+        </div>
+
+        <button onclick="toggleDetail('research')">
+          자세히 보기
+        </button>
+
+        <div class="detail" id="research">
+          <p>
+            3D knot 데이터 기반 실험과
+            Jacobian 기반 공간 왜곡 분석 등을 진행했습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>5. Activities</h2>
+
+      <div class="card">
+        <h3>과학한마당 사이언스 골든벨</h3>
+        <p>정보·알고리즘 분야 문제 출제 및 행사 진행.</p>
+      </div>
+
+      <div class="card">
+        <h3>아두이노 입문 강연</h3>
+        <p>교내 신입생 대상 아두이노 기초 강연 진행.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>6. Contact</h2>
+
+      <p>Email: srchae99@gmail.com</p>
+      <p>GitHub: github.com/1213anthony</p>
+
+      <p>
+        Seoul Science High School<br>
+        Republic of Korea
+      </p>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
