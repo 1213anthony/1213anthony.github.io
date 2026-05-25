@@ -1,136 +1,175 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jeong-Woo Son Portfolio</title>
 
   <style>
 
     *{
+      margin:0;
+      padding:0;
       box-sizing:border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
-    }
-
     body{
-      margin:0;
-      padding:0;
-      background:#eef6ff;
-      color:#1c2430;
-      font-family:Arial, sans-serif;
+      font-family: "Pretendard", sans-serif;
+      background: linear-gradient(to bottom, #eef7ff, #ffffff);
+      color:#1f2937;
       line-height:1.7;
+      padding:40px 20px;
     }
 
     .container{
-      width:min(1100px, 92%);
+      max-width:1300px;
       margin:auto;
-      padding:80px 0;
     }
 
-    h1{
-      font-size:54px;
-      margin-bottom:12px;
-      color:#1d2b45;
-    }
-
-    .subtitle{
-      font-size:20px;
-      color:#4b6285;
+    .hero{
+      text-align:center;
       margin-bottom:70px;
     }
 
-    h2{
-      font-size:34px;
-      margin-top:90px;
-      margin-bottom:30px;
-      color:#24406a;
+    .profile-img{
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      object-fit:cover;
+      border:5px solid white;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+      margin-bottom:24px;
     }
 
-    h3{
-      margin-top:0;
-      font-size:24px;
-      line-height:1.4;
-      color:#1d2b45;
+    h1{
+      font-size:3rem;
+      color:#0f172a;
+      margin-bottom:10px;
     }
 
-    p{
-      color:#4b5f7d;
-      margin:0;
+    .subtitle{
+      color:#6b7280;
+      font-size:1rem;
+      line-height:1.8;
+      margin-bottom:24px;
     }
 
-    .section-card{
+    .intro{
+      max-width:760px;
+      margin:auto;
+      font-size:1.08rem;
+      color:#374151;
+    }
+
+    section{
+      margin-top:70px;
+    }
+
+    .section-title{
+      font-size:2rem;
+      margin-bottom:25px;
+      border-left:6px solid #7dd3fc;
+      padding-left:14px;
+      color:#0f172a;
+    }
+
+    .course-box{
       background:white;
-      border-radius:24px;
-      padding:36px;
-      box-shadow:0 10px 30px rgba(100,130,180,0.08);
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.05);
     }
 
-    .projects-grid{
+    .course-box p{
+      margin-bottom:18px;
+    }
+
+    .grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-      gap:28px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:24px;
     }
 
     .card{
       background:white;
       border-radius:22px;
-      padding:28px;
-      box-shadow:0 8px 24px rgba(120,150,200,0.08);
-
-      transition:0.2s ease;
+      padding:24px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+      transition:0.25s;
+      border:1px solid #e0f2fe;
     }
 
     .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 14px 34px rgba(120,150,200,0.16);
+      transform:translateY(-4px);
+      box-shadow:0 12px 28px rgba(0,0,0,0.1);
+    }
+
+    .card h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    .date{
+      color:#38bdf8;
+      font-size:0.92rem;
+      margin-bottom:12px;
+      font-weight:600;
     }
 
     .tech{
+      margin-top:16px;
+      color:#2563eb;
+      font-size:0.92rem;
+      font-weight:600;
+    }
+
+    .detail-btn{
+      display:inline-block;
       margin-top:18px;
-      color:#4f83d1;
-      font-size:14px;
-      font-weight:bold;
+      padding:9px 16px;
+      border-radius:12px;
+      background:#e0f2fe;
+      color:#0369a1;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.2s;
     }
 
-    details{
-      margin-top:20px;
-      background:#f4f9ff;
-      border-radius:14px;
-      padding:14px 18px;
-    }
-
-    summary{
-      cursor:pointer;
-      color:#3b6fc2;
-      font-weight:bold;
-    }
-
-    details p{
-      margin-top:14px;
+    .detail-btn:hover{
+      background:#bae6fd;
     }
 
     .contact{
       background:white;
       border-radius:24px;
-      padding:36px;
-      box-shadow:0 10px 30px rgba(100,130,180,0.08);
+      padding:35px;
+      text-align:center;
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
     }
 
-    a{
-      color:#3d74d1;
+    .contact a{
+      color:#0284c7;
       text-decoration:none;
     }
 
-    a:hover{
-      text-decoration:underline;
+    footer{
+      margin-top:60px;
+      text-align:center;
+      color:#94a3b8;
+      font-size:0.95rem;
     }
 
-    .small-gap{
-      height:10px;
+    @media(max-width:768px){
+
+      h1{
+        font-size:2.3rem;
+      }
+
+      .section-title{
+        font-size:1.6rem;
+      }
+
     }
 
   </style>
@@ -138,28 +177,42 @@
 
 <body>
 
-  <div class="container">
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+
+    <!-- 프로필 사진 -->
+    <!-- 같은 폴더 안에 profile.jpg 넣으면 자동 적용 -->
+    <img src="profile.jpg" class="profile-img">
 
     <h1>손정우 · Jeong-Woo Son</h1>
 
-    <p class="subtitle">
-      기계공학과 AI에 관심을 가지고, 아이디어를 직접 구현하는 것을 좋아하는 학생입니다.
+    <div class="subtitle">
+      Student Researcher · Robotics · AI · Mathematical Modeling<br>
+      Seoul Science High School
+    </div>
+
+    <p class="intro">
+      기계공학과 AI에 관심을 가지고,
+      아이디어를 직접 구현하는 것을 좋아하는 학생입니다.
     </p>
 
+  </div>
 
 
+  <!-- ABOUT -->
+  <section>
 
+    <h2 class="section-title">1. About Me</h2>
 
-    <h2>1. About Me</h2>
-
-    <div class="section-card">
+    <div class="course-box">
 
       <p>
-        아두이노·센서·로봇 제작 프로젝트를 진행하며 기계공학과 프로그래밍에 관심을 가지게 되었고,
+        아두이노·센서·로봇 제작 프로젝트를 진행하며
+        기계공학과 프로그래밍에 관심을 가지게 되었고,
         이후 머신러닝과 알고리즘 분야로 관심을 확장했습니다.
       </p>
-
-      <div class="small-gap"></div>
 
       <p>
         직접 구현하고 실험해보는 과정을 좋아하며,
@@ -168,319 +221,145 @@
 
     </div>
 
+  </section>
 
 
+  <!-- COURSEWORK -->
+  <section>
 
+    <h2 class="section-title">2. Coursework</h2>
 
-    <h2>2. Coursework</h2>
-
-    <div class="section-card">
-
-      <h3>Computer Science</h3>
+    <div class="course-box">
 
       <p>
-        <strong>컴퓨터과학 I</strong><br>
+        <b>컴퓨터과학 I</b><br>
         Python 기초 · 파일 입출력 · 기초 알고리즘
       </p>
 
-      <br>
-
       <p>
-        <strong>컴퓨터과학 II</strong><br>
+        <b>컴퓨터과학 II</b><br>
         정규표현식 · 탐색 및 정렬 · 객체지향 프로그래밍
       </p>
 
-      <br>
-
       <p>
-        <strong>데이터 과학</strong><br>
+        <b>데이터 과학</b><br>
         Pandas · NumPy · EDA · 기초 머신러닝
       </p>
 
     </div>
 
+  </section>
 
 
+  <!-- PROJECTS -->
+  <section>
 
+    <h2 class="section-title">3. Projects</h2>
 
-    <h2>3. Projects</h2>
-
-    <div class="projects-grid">
-
-
-
-      <div class="card">
-
-        <h3>로봇 머신러닝 기반 이동 최적화<br>(2026 — 진행 중)</h3>
-
-        <p>
-          머신러닝 기반으로 로봇 이동 제어를 최적화하는 과제연구 프로젝트.
-        </p>
-
-        <div class="tech">
-          Python · ML · Robotics
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            시뮬레이션 환경에서 로봇 이동 경로와 제어 안정성을 검증하고 있으며,
-            이후 실제 하드웨어 로봇 적용을 목표로 하고 있습니다.
-          </p>
-        </details>
-
-      </div>
-
-
+    <div class="grid">
 
       <div class="card">
-
-        <h3>Gemini LaTeX 렌더링 복원 확장 프로그램<br>(2026.04)</h3>
-
-        <p>
-          깨진 LaTeX 수식을 자동으로 복원하는 Chrome Extension 개발.
-        </p>
-
-        <div class="tech">
-          JavaScript · Chrome Extension
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            DOM Parsing을 활용해 깨진 수식 문자열을 탐지하고
-            자동 복원하도록 구현했습니다.
-          </p>
-        </details>
-
+        <h3>로봇 머신러닝 기반 이동 최적화</h3>
+        <div class="date">2026 — 진행 중</div>
+        <p>머신러닝 기반 로봇 이동 제어 최적화 프로젝트.</p>
+        <div class="tech">Python · ML · Robotics</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>N진 탐색 알고리즘의 효율성과 하드웨어 상관관계 분석<br>(2025.11)</h3>
-
-        <p>
-          탐색 분기 수와 실제 하드웨어 효율 사이의 관계를 분석한 프로젝트.
-        </p>
-
-        <div class="tech">
-          Algorithms · Optimization
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            최적 분기 수와 실제 CPU 환경에서의 탐색 효율 차이를
-            수학적 분석과 코드 실험을 통해 비교했습니다.
-          </p>
-        </details>
-
+        <h3>Gemini LaTeX 렌더링 복원</h3>
+        <div class="date">2026.04</div>
+        <p>깨진 LaTeX 수식을 자동 복원하는 Chrome Extension.</p>
+        <div class="tech">JavaScript · Chrome Extension</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>학교 건물 최단경로 안내 시스템<br>(2025.05~06)</h3>
-
-        <p>
-          Dijkstra 알고리즘 기반 학교 건물 최단경로 탐색 시스템 개발.
-        </p>
-
-        <div class="tech">
-          Python · Graph Algorithm
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            실내 경로 우선 탐색과 경유지 기능 등을 포함한
-            학교 길찾기 시스템을 구현했습니다.
-          </p>
-        </details>
-
+        <h3>N진 탐색 알고리즘 분석</h3>
+        <div class="date">2025.11</div>
+        <p>탐색 분기 수와 하드웨어 효율 관계 분석.</p>
+        <div class="tech">Algorithms · Optimization</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>문명: Sheep — 양치기 소년 전략 게임<br>(2025.09~11)</h3>
-
-        <p>
-          턴 기반 전략 시스템과 미니게임 요소를 포함한 게임 프로젝트.
-        </p>
-
-        <div class="tech">
-          Python · OOP · Game Development
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            우화 「늑대와 양치기 소년」을 기반으로 제작한 전략 게임이며,
-            미니게임 제작과 일부 그래픽 작업을 담당했습니다.
-          </p>
-        </details>
-
+        <h3>학교 건물 최단경로 시스템</h3>
+        <div class="date">2025.05~06</div>
+        <p>Dijkstra 기반 학교 건물 길찾기 시스템.</p>
+        <div class="tech">Python · Graph Algorithm</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>광화문 도로 통제 사회적 손해비용 EDA<br>(2026.04~Now)</h3>
-
-        <p>
-          공공데이터를 활용해 교통 통제로 인한 사회적 비용을 분석한 프로젝트.
-        </p>
-
-        <div class="tech">
-          Pandas · EDA · Data Analysis
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            교통량·통행속도 데이터를 활용해 시간대별 정체 변화를 분석하고,
-            사회적 손해비용을 추정했습니다.
-          </p>
-        </details>
-
+        <h3>문명: Sheep</h3>
+        <div class="date">2025.09~11</div>
+        <p>턴 기반 전략 시스템과 미니게임 요소를 포함한 게임 프로젝트.</p>
+        <div class="tech">Python · OOP · Game Development</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>아두이노 드론 손동작 제어 시스템<br>(2025.10)</h3>
-
-        <p>
-          IMU 센서를 활용한 드론 손동작 제어 시스템 제작.
-        </p>
-
-        <div class="tech">
-          Arduino · Embedded Systems
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            손의 기울기와 각도를 실시간으로 읽어
-            드론 제어 신호로 변환하는 시스템을 구현했습니다.
-          </p>
-        </details>
-
+        <h3>광화문 도로 통제 사회적 손해비용 EDA</h3>
+        <div class="date">2026.04~Now</div>
+        <p>공공데이터 기반 교통 혼잡 비용 분석 프로젝트.</p>
+        <div class="tech">Pandas · EDA · Data Analysis</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>기숙사 자동 소등기<br>(2025.05~08)</h3>
-
-        <p>
-          시간 기반 자동 조명 제어 시스템 제작.
-        </p>
-
-        <div class="tech">
-          Arduino · IoT
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            기숙사 생활의 불편을 해결하기 위해 제작한 미니 IoT 프로젝트입니다.
-          </p>
-        </details>
-
+        <h3>아두이노 드론 손동작 제어</h3>
+        <div class="date">2025.10</div>
+        <p>IMU 센서를 활용한 드론 제어 시스템 제작.</p>
+        <div class="tech">Arduino · Embedded Systems</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>아두이노 리듬게임기<br>(2026.03~Now)</h3>
-
-        <p>
-          아두이노 기반 리듬게임 하드웨어 및 소프트웨어 제작 프로젝트.
-        </p>
-
-        <div class="tech">
-          Arduino · Real-time Processing
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            버튼 입력, LED 출력, 점수 시스템 등을 통합한
-            리듬게임 시스템을 제작하고 있습니다.
-          </p>
-        </details>
-
+        <h3>기숙사 자동 소등기</h3>
+        <div class="date">2025.05~08</div>
+        <p>시간 기반 자동 조명 제어 시스템.</p>
+        <div class="tech">Arduino · IoT</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
-
-
 
       <div class="card">
-
-        <h3>N차원 회전 행렬 시각화 프로젝트<br>(2024)</h3>
-
-        <p>
-          고차원 회전 변환을 시각적으로 탐색하기 위한 프로젝트.
-        </p>
-
-        <div class="tech">
-          Python · Linear Algebra · Visualization
-        </div>
-
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            임의 차원에서 회전 평면을 선택하고
-            회전 변환을 시각적으로 탐색할 수 있도록 구현했습니다.
-          </p>
-        </details>
-
+        <h3>아두이노 리듬게임기</h3>
+        <div class="date">2026.03~Now</div>
+        <p>아두이노 기반 리듬게임 하드웨어 프로젝트.</p>
+        <div class="tech">Arduino · Real-time Processing</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
       </div>
 
-
+      <div class="card">
+        <h3>N차원 회전 행렬 시각화</h3>
+        <div class="date">2024</div>
+        <p>고차원 회전 변환 시각화 프로젝트.</p>
+        <div class="tech">Python · Linear Algebra</div>
+        <a href="#" class="detail-btn">자세히 보기</a>
+      </div>
 
     </div>
 
+  </section>
 
 
+  <!-- RESEARCH -->
+  <section>
 
+    <h2 class="section-title">4. Research</h2>
 
-    <h2>4. Research</h2>
+    <div class="card">
 
-    <div class="section-card">
+      <h3>신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석</h3>
 
-      <h3>
-        신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석
-        (2026.04~Now)
-      </h3>
+      <div class="date">2026.04~Now</div>
 
       <p>
         딥러닝 모델이 복잡한 구조를 가진 데이터를 학습할 때
         표현 공간을 왜곡하며 일반화에 실패할 수 있다는 가설을 바탕으로 진행 중인 개인 연구입니다.
       </p>
 
-      <br>
-
-      <p>
+      <p style="margin-top:10px;">
         3D 매듭(knot) 데이터 기반 실험과 Jacobian 기반 공간 왜곡 분석 등을 진행하고 있습니다.
       </p>
 
@@ -488,28 +367,25 @@
         Representation Learning · Geometry · Topology
       </div>
 
-      <details>
-        <summary>자세히 보기</summary>
-
-        <p>
-          복잡하게 꼬인 구조를 가진 데이터를 신경망이 어떻게 표현하는지 분석하고 있으며,
-          차원 축소 과정에서 발생하는 위상적 붕괴 현상을 실험적으로 관찰하고 있습니다.
-        </p>
-      </details>
+      <a href="#" class="detail-btn">자세히 보기</a>
 
     </div>
 
+  </section>
 
 
+  <!-- ACTIVITIES -->
+  <section>
 
+    <h2 class="section-title">5. Activities</h2>
 
-    <h2>5. Activities</h2>
-
-    <div class="projects-grid">
+    <div class="grid">
 
       <div class="card">
 
-        <h3>2026 과학한마당 사이언스 골든벨 — 출제 및 호스트</h3>
+        <h3>과학한마당 사이언스 골든벨</h3>
+
+        <div class="date">2026</div>
 
         <p>
           정보·알고리즘 분야 문제를 직접 출제하고 행사 진행에도 참여했습니다.
@@ -519,54 +395,42 @@
           Algorithms · Problem Design
         </div>
 
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            비트마스킹, 동적 프로그래밍, 불변량(Invariant) 등
-            다양한 사고 유형 기반 문제를 설계했습니다.
-          </p>
-        </details>
+        <a href="#" class="detail-btn">자세히 보기</a>
 
       </div>
 
-
-
       <div class="card">
 
-        <h3>아두이노 입문 강연 (2025)</h3>
+        <h3>아두이노 입문 강연</h3>
+
+        <div class="date">2025</div>
 
         <p>
-          교내 동아리 신입생 약 50명을 대상으로 아두이노 기초 강연을 진행했습니다.
+          교내 동아리 신입생 약 50명을 대상으로 아두이노 기초 강연 진행.
         </p>
 
         <div class="tech">
           Arduino · Education
         </div>
 
-        <details>
-          <summary>자세히 보기</summary>
-
-          <p>
-            회로 기초, 센서 입력 처리, Arduino IDE 사용법 등을 중심으로
-            실습 위주의 강의를 구성했습니다.
-          </p>
-        </details>
+        <a href="#" class="detail-btn">자세히 보기</a>
 
       </div>
 
     </div>
 
+  </section>
 
 
+  <!-- CONTACT -->
+  <section>
 
-
-    <h2>6. Contact</h2>
+    <h2 class="section-title">6. Contact</h2>
 
     <div class="contact">
 
+      <p><b>Email</b></p>
       <p>
-        Email:
         <a href="mailto:srchae99@gmail.com">
           srchae99@gmail.com
         </a>
@@ -574,8 +438,8 @@
 
       <br>
 
+      <p><b>GitHub</b></p>
       <p>
-        GitHub:
         <a href="https://github.com/1213anthony" target="_blank">
           github.com/1213anthony
         </a>
@@ -590,7 +454,14 @@
 
     </div>
 
-  </div>
+  </section>
+
+
+  <footer>
+    © 2026 Jeong-Woo Son
+  </footer>
+
+</div>
 
 </body>
 </html>
