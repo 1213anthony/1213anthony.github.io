@@ -1,236 +1,444 @@
-from pathlib import Path
-import zipfile
-
-base = Path("/mnt/data/full_portfolio_site")
-base.mkdir(exist_ok=True)
-
-projects_html = """
-      <div class="card">
-        <h3>로봇 머신러닝 기반 이동 최적화 (2026 — 진행 중)</h3>
-        <p>머신러닝 기반 로봇 이동 제어 최적화 프로젝트.</p>
-        <div class="tech">Python · ML · Robotics</div>
-      </div>
-
-      <div class="card">
-        <h3>Gemini LaTeX 렌더링 복원 확장 프로그램 (2026.04)</h3>
-        <p>깨진 LaTeX 수식을 자동 복원하는 Chrome Extension.</p>
-        <div class="tech">JavaScript · Chrome Extension</div>
-      </div>
-
-      <div class="card">
-        <h3>N진 탐색 알고리즘의 효율성과 하드웨어 상관관계 분석 (2025.11)</h3>
-        <p>탐색 분기 수와 실제 하드웨어 효율 관계 분석.</p>
-        <div class="tech">Algorithms · Optimization</div>
-      </div>
-
-      <div class="card">
-        <h3>학교 건물 최단경로 안내 시스템 (2025.05~06)</h3>
-        <p>Dijkstra 알고리즘 기반 최단경로 탐색 시스템.</p>
-        <div class="tech">Python · Graph Algorithm</div>
-      </div>
-
-      <div class="card">
-        <h3>문명: Sheep — 양치기 소년 전략 게임 (2025.09~11)</h3>
-        <p>턴 기반 전략 및 미니게임 요소를 포함한 게임 프로젝트.</p>
-        <div class="tech">Python · OOP · Game Development</div>
-      </div>
-
-      <div class="card">
-        <h3>광화문 도로 통제 사회적 손해비용 EDA (2026.04~Now)</h3>
-        <p>공공데이터 기반 교통 혼잡 비용 분석 프로젝트.</p>
-        <div class="tech">Pandas · EDA · Data Analysis</div>
-      </div>
-
-      <div class="card">
-        <h3>아두이노 드론 손동작 제어 시스템 (2025.10)</h3>
-        <p>IMU 센서를 활용한 드론 손동작 제어 시스템.</p>
-        <div class="tech">Arduino · Embedded Systems</div>
-      </div>
-
-      <div class="card">
-        <h3>기숙사 자동 소등기 (2025.05~08)</h3>
-        <p>시간 기반 자동 조명 제어 시스템 제작.</p>
-        <div class="tech">Arduino · IoT</div>
-      </div>
-
-      <div class="card">
-        <h3>아두이노 리듬게임기 (2026.03~Now)</h3>
-        <p>아두이노 기반 리듬게임 하드웨어 및 소프트웨어 제작.</p>
-        <div class="tech">Arduino · Real-time Processing</div>
-      </div>
-
-      <div class="card">
-        <h3>N차원 회전 행렬 시각화 프로젝트 (2024)</h3>
-        <p>고차원 회전 변환을 시각적으로 탐색하기 위한 프로젝트.</p>
-        <div class="tech">Python · Linear Algebra · Visualization</div>
-      </div>
-"""
-
-index_html = f"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jeong-Woo Son Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      padding:40px 20px;
+      background:#0f1117;
+      color:#f5f5f5;
+      font-family:Arial, sans-serif;
+      line-height:1.7;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    h2{
+      margin-top:70px;
+      margin-bottom:20px;
+      font-size:30px;
+      border-bottom:1px solid #333;
+      padding-bottom:10px;
+    }
+
+    h3{
+      margin-top:0;
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    p{
+      color:#d0d0d0;
+    }
+
+    .intro{
+      font-size:18px;
+      margin-bottom:50px;
+    }
+
+    .card{
+      background:#1a1d26;
+      border:1px solid #2d3340;
+      padding:25px;
+      border-radius:16px;
+      margin-bottom:24px;
+    }
+
+    .tech{
+      margin-top:15px;
+      color:#8fb7ff;
+      font-size:14px;
+    }
+
+    details{
+      margin-top:18px;
+      background:#141821;
+      padding:15px;
+      border-radius:10px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:bold;
+      color:#9fc3ff;
+    }
+
+    a{
+      color:#9fc3ff;
+      text-decoration:none;
+    }
+
+    .contact{
+      margin-top:20px;
+      line-height:2;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+  </style>
 </head>
+
 <body>
+
 <div class="container">
 
-<header>
   <h1>손정우 · Jeong-Woo Son</h1>
-  <p>기계공학과 AI에 관심을 가지고, 아이디어를 직접 구현하는 것을 좋아하는 학생입니다.</p>
-</header>
 
-<section>
+  <p class="intro">
+    기계공학과 AI에 관심을 가지고, 아이디어를 직접 구현하는 것을 좋아하는 학생입니다.
+  </p>
+
   <h2>1. About Me</h2>
-  <p>
-    아두이노·센서·로봇 제작 프로젝트를 진행하며 기계공학과 프로그래밍에 관심을 가지게 되었고,
-    이후 머신러닝과 알고리즘 분야로 관심을 확장했습니다.
-  </p>
-  <p>
-    직접 구현하고 실험해보는 과정을 좋아하며,
-    최근에는 AI 모델의 표현 구조와 일반화 문제에 관심을 가지고 공부하고 있습니다.
-  </p>
-</section>
 
-<section>
+  <div class="card">
+    <p>
+      아두이노·센서·로봇 제작 프로젝트를 진행하며 기계공학과 프로그래밍에 관심을 가지게 되었고,
+      이후 머신러닝과 알고리즘 분야로 관심을 확장했습니다.
+    </p>
+
+    <p>
+      직접 구현하고 실험해보는 과정을 좋아하며, 최근에는 AI 모델의 표현 구조와 일반화 문제에 관심을 가지고 공부하고 있습니다.
+    </p>
+  </div>
+
   <h2>2. Coursework</h2>
 
   <div class="card">
-    <h3>컴퓨터과학 I</h3>
-    <p>Python 기초 · 파일 입출력 · 기초 알고리즘</p>
+    <h3>Computer Science</h3>
+
+    <p><strong>컴퓨터과학 I</strong><br>
+    Python 기초 · 파일 입출력 · 기초 알고리즘</p>
+
+    <p><strong>컴퓨터과학 II</strong><br>
+    정규표현식 · 탐색 및 정렬 · 객체지향 프로그래밍</p>
+
+    <p><strong>데이터 과학</strong><br>
+    Pandas · NumPy · EDA · 기초 머신러닝</p>
   </div>
 
-  <div class="card">
-    <h3>컴퓨터과학 II</h3>
-    <p>정규표현식 · 탐색 및 정렬 · 객체지향 프로그래밍</p>
-  </div>
-
-  <div class="card">
-    <h3>데이터 과학</h3>
-    <p>Pandas · NumPy · EDA · 기초 머신러닝</p>
-  </div>
-</section>
-
-<section>
   <h2>3. Projects</h2>
-  {projects_html}
-</section>
 
-<section>
+  <div class="card">
+    <h3>로봇 머신러닝 기반 이동 최적화 (2026 — 진행 중)</h3>
+
+    <p>
+      머신러닝 기반으로 로봇 이동 제어를 최적화하는 과제연구 프로젝트.
+    </p>
+
+    <div class="tech">
+      Python · ML · Robotics
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        시뮬레이션 환경에서 로봇의 이동 경로와 제어 안정성을 검증하고 있으며,
+        이후 실제 하드웨어 로봇 적용을 목표로 하고 있습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>Gemini LaTeX 렌더링 복원 확장 프로그램 (2026.04)</h3>
+
+    <p>
+      깨진 LaTeX 수식을 자동으로 복원하는 Chrome Extension 개발.
+    </p>
+
+    <div class="tech">
+      JavaScript · Chrome Extension
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        Gemini에서 일부 수식이 정상적으로 렌더링되지 않는 문제를 해결하기 위해 제작했습니다.
+        DOM Parsing을 활용해 깨진 수식 문자열을 탐지하고 자동 복원하도록 구현했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>N진 탐색 알고리즘의 효율성과 하드웨어 상관관계 분석 (2025.11)</h3>
+
+    <p>
+      탐색 분기 수와 실제 하드웨어 효율 사이의 관계를 분석한 프로젝트.
+    </p>
+
+    <div class="tech">
+      Algorithms · Optimization
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        이론적으로 최적 분기 수가 자연상수 e 근처에서 최소화된다는 점을 유도하고,
+        실제 코드 시뮬레이션을 통해 성능을 비교했습니다.
+      </p>
+
+      <p>
+        또한 CPU 캐시 및 비트 연산 효율 등의 이유로
+        실제 환경에서는 이진 탐색이 평균적으로 가장 효율적임을 분석했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>학교 건물 최단경로 안내 시스템 (2025.05~06)</h3>
+
+    <p>
+      Dijkstra 알고리즘 기반 학교 건물 최단경로 탐색 시스템 개발.
+    </p>
+
+    <div class="tech">
+      Python · Graph Algorithm
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        학교 건물 구조가 복잡해 학생들이 길을 헤매는 문제를 해결하기 위해 제작했습니다.
+        비가 올 경우 실내 경로를 우선 탐색하는 기능과 경유지 설정 기능 등을 구현했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>문명: Sheep — 양치기 소년 전략 게임 (2025.09~11)</h3>
+
+    <p>
+      턴 기반 전략 시스템과 미니게임 요소를 포함한 게임 프로젝트.
+    </p>
+
+    <div class="tech">
+      Python · OOP · Game Development
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        우화 「늑대와 양치기 소년」을 기반으로 제작한 전략 시뮬레이션 게임입니다.
+        미니게임 제작과 일부 그래픽 작업을 담당했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>광화문 도로 통제 사회적 손해비용 EDA (2026.04~Now)</h3>
+
+    <p>
+      공공데이터를 활용해 교통 통제로 인한 사회적 비용을 분석한 프로젝트.
+    </p>
+
+    <div class="tech">
+      Pandas · EDA · Data Analysis
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        교통량·통행속도 데이터를 활용해 시간대별 정체 변화를 분석하고,
+        교통 혼잡 비용 모델을 기반으로 사회적 손해비용을 추정했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>아두이노 드론 손동작 제어 시스템 (2025.10)</h3>
+
+    <p>
+      IMU 센서를 활용한 드론 손동작 제어 시스템 제작.
+    </p>
+
+    <div class="tech">
+      Arduino · Embedded Systems
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        손의 기울기와 각도를 실시간으로 읽고,
+        이를 드론 제어 신호로 변환하는 시스템을 구현했습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>기숙사 자동 소등기 (2025.05~08)</h3>
+
+    <p>
+      시간 기반 자동 조명 제어 시스템 제작.
+    </p>
+
+    <div class="tech">
+      Arduino · IoT
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        기숙사 생활의 불편을 해결하기 위해 제작한 미니 IoT 프로젝트입니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>아두이노 리듬게임기 (2026.03~Now)</h3>
+
+    <p>
+      아두이노 기반 리듬게임 하드웨어 및 소프트웨어 제작 프로젝트.
+    </p>
+
+    <div class="tech">
+      Arduino · Real-time Processing
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        버튼 입력, LED 출력, 점수 시스템 등을 통합한
+        임베디드 기반 리듬게임 시스템을 제작하고 있습니다.
+      </p>
+    </details>
+  </div>
+
+  <div class="card">
+    <h3>N차원 회전 행렬 시각화 프로젝트 (2024)</h3>
+
+    <p>
+      고차원 회전 변환을 시각적으로 탐색하기 위한 프로젝트.
+    </p>
+
+    <div class="tech">
+      Python · Linear Algebra · Visualization
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        임의 차원에서 회전 평면을 선택하고
+        회전 변환을 실시간으로 시각화할 수 있도록 구현했습니다.
+      </p>
+    </details>
+  </div>
+
   <h2>4. Research</h2>
 
   <div class="card">
     <h3>신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석 (2026.04~Now)</h3>
 
     <p>
-      딥러닝 모델이 복잡한 구조를 가진 데이터를 학습할 때
-      표현 공간을 왜곡하며 일반화에 실패할 수 있다는 가설 기반 개인 연구.
+      딥러닝 모델이 복잡한 구조를 가진 데이터를 학습할 때 표현 공간을 왜곡하며 일반화에 실패할 수 있다는 가설을 바탕으로 진행 중인 개인 연구입니다.
+    </p>
+
+    <p>
+      3D 매듭(knot) 데이터 기반 실험과 Jacobian 기반 공간 왜곡 분석 등을 진행하고 있습니다.
     </p>
 
     <div class="tech">
       Representation Learning · Geometry · Topology
     </div>
-  </div>
-</section>
 
-<section>
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        복잡하게 꼬인 구조를 가진 데이터를 신경망이 어떻게 표현하는지 분석하고 있으며,
+        차원 축소 과정에서 발생하는 위상적 붕괴 현상을 실험적으로 관찰하고 있습니다.
+      </p>
+    </details>
+  </div>
+
   <h2>5. Activities</h2>
 
   <div class="card">
     <h3>2026 과학한마당 사이언스 골든벨 — 출제 및 호스트</h3>
-    <p>정보·알고리즘 분야 문제 출제 및 행사 진행.</p>
-    <div class="tech">Algorithms · Problem Design</div>
+
+    <p>
+      정보·알고리즘 분야 문제를 직접 출제하고 행사 진행에도 참여했습니다.
+    </p>
+
+    <div class="tech">
+      Algorithms · Problem Design
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        비트마스킹, 동적 프로그래밍, 불변량(Invariant) 등
+        다양한 사고 유형 기반 문제를 설계했습니다.
+      </p>
+    </details>
   </div>
 
   <div class="card">
     <h3>아두이노 입문 강연 (2025)</h3>
-    <p>교내 신입생 대상 아두이노 기초 강연 진행.</p>
-    <div class="tech">Arduino · Education</div>
-  </div>
-</section>
 
-<section>
+    <p>
+      교내 동아리 신입생 약 50명을 대상으로 아두이노 기초 강연을 진행했습니다.
+    </p>
+
+    <div class="tech">
+      Arduino · Education
+    </div>
+
+    <details>
+      <summary>자세히 보기</summary>
+
+      <p>
+        회로 기초, 센서 입력 처리, Arduino IDE 사용법 등을 중심으로
+        실습 위주의 강의를 구성했습니다.
+      </p>
+    </details>
+  </div>
+
   <h2>6. Contact</h2>
 
-  <p>Email: srchae99@gmail.com</p>
-  <p>GitHub: github.com/1213anthony</p>
+  <div class="card contact">
+    <p>Email: srchae99@gmail.com</p>
 
-  <p>
-    Seoul Science High School<br>
-    Republic of Korea
-  </p>
-</section>
+    <p>
+      GitHub:
+      <a href="https://github.com/1213anthony" target="_blank">
+        github.com/1213anthony
+      </a>
+    </p>
+
+    <p>
+      Seoul Science High School<br>
+      Republic of Korea
+    </p>
+  </div>
 
 </div>
+
 </body>
 </html>
-"""
-
-style_css = """
-body {
-  font-family: sans-serif;
-  background: #f5f5f5;
-  color: #222;
-  line-height: 1.7;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
-}
-
-header {
-  margin-bottom: 60px;
-}
-
-h1 {
-  font-size: 42px;
-}
-
-h2 {
-  margin-top: 60px;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 10px;
-}
-
-.card {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  margin-top: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.tech {
-  color: #666;
-  margin-top: 10px;
-  font-size: 14px;
-}
-"""
-
-readme = """# Jeong-Woo Son Portfolio
-
-Personal portfolio website built with HTML/CSS.
-
-Includes:
-- Robotics
-- AI & ML Projects
-- Algorithms
-- Arduino Projects
-- Research
-"""
-
-(base / "index.html").write_text(index_html, encoding="utf-8")
-(base / "style.css").write_text(style_css, encoding="utf-8")
-(base / "script.js").write_text("// reserved for future interactions", encoding="utf-8")
-(base / "README.md").write_text(readme, encoding="utf-8")
-
-zip_path = "/mnt/data/full_portfolio_site.zip"
-with zipfile.ZipFile(zip_path, "w") as z:
-    for f in base.iterdir():
-        z.write(f, arcname=f.name)
-
-print("Updated portfolio created:", zip_path)
