@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jeong-Woo Son Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img src="profile.jpg" alt="profile" class="profile-image">
+    <h1>손정우 · Jeong-Woo Son</h1>
+    <div class="school">Seoul Science High School</div>
+    <p class="subtitle">
+      기계공학과 AI에 관심이 많으며 발명하는 것을 좋아하는 학생입니다.
+    </p>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>1. About Me</h2>
+    <div class="about-box">
+      <p>
+        아두이노·센서·로봇 제작 프로젝트를 진행하며 기계공학과 프로그래밍에 관심을 가지게 되었고,
+        이후 머신러닝과 알고리즘 분야로 관심을 확장했습니다.
+      </p>
+      <br>
+      <p>
+        직접 구현하고 실험해보는 과정을 좋아하며,
+        최근에는 AI 모델의 표현 구조와 일반화 문제에 관심을 가지고 공부하고 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURSEWORK -->
+  <section>
+    <h2>2. Coursework</h2>
+    <div class="grid">
+      <div class="course-card">
+        <h3>컴퓨터과학 I</h3>
+        <p>Python 기초 · 파일 입출력 · 기초 알고리즘</p>
+      </div>
+      <div class="course-card">
+        <h3>컴퓨터과학 II</h3>
+        <p>정규표현식 · 탐색 및 정렬 · 객체지향 프로그래밍</p>
+      </div>
+      <div class="course-card">
+        <h3>데이터 과학</h3>
+        <p>Pandas · NumPy · EDA · 기초 머신러닝</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section>
+    <h2>3. Projects</h2>
+
+    <div class="grid">
+
+      <!-- 1. ROBOT -->
+      <div class="card">
+        <h3>로봇 머신러닝 기반 이동 최적화</h3>
+        <div class="date">2026 — 진행 중</div>
+        <p>머신러닝 기반으로 로봇 이동 제어를 최적화하는 과제연구 프로젝트.</p>
+        <div class="tech">Python · ML · Robotics</div>
+        <button class="detail-btn" data-modal="modal-robot">자세히 보기 →</button>
+      </div>
+
+      <!-- 2. GEMINI -->
+      <div class="card">
+        <h3>Gemini LaTeX 렌더링 복원 확장 프로그램</h3>
+        <div class="date">2026.04</div>
+        <p>깨진 LaTeX 수식을 자동으로 복원하는 Chrome Extension 개발.</p>
+        <div class="tech">JavaScript · Chrome Extension</div>
+        <button class="detail-btn" data-modal="modal-gemini">자세히 보기 →</button>
+      </div>
+
+      <!-- 3. N-ARY -->
+      <div class="card">
+        <h3>N진 탐색 알고리즘의 효율성과 하드웨어 상관관계 분석</h3>
+        <div class="date">2025.11</div>
+        <p>탐색 분기 수와 실제 하드웨어 효율 사이의 관계를 분석한 프로젝트.</p>
+        <div class="tech">Algorithms · Optimization</div>
+        <button class="detail-btn" data-modal="modal-nary">자세히 보기 →</button>
+      </div>
+
+      <!-- 4. PATH -->
+      <div class="card">
+        <h3>학교 건물 최단경로 안내 시스템</h3>
+        <div class="date">2025.05~06</div>
+        <p>Dijkstra 알고리즘 기반 학교 건물 최단경로 탐색 시스템 개발.</p>
+        <div class="tech">Python · Graph Algorithm</div>
+        <button class="detail-btn" data-modal="modal-path">자세히 보기 →</button>
+      </div>
+
+      <!-- 5. SHEEP -->
+      <div class="card">
+        <h3>문명: Sheep — 양치기 소년 전략 게임</h3>
+        <div class="date">2025.09~11</div>
+        <p>턴 기반 전략 시스템과 미니게임 요소를 포함한 게임 프로젝트.</p>
+        <div class="tech">Python · OOP · Game Development</div>
+        <button class="detail-btn" data-modal="modal-sheep">자세히 보기 →</button>
+      </div>
+
+      <!-- 6. GWANGHWAMUN -->
+      <div class="card">
+        <h3>광화문 도로 통제 사회적 손해비용 EDA</h3>
+        <div class="date">2026.04~Now</div>
+        <p>공공데이터를 활용해 교통 통제로 인한 사회적 비용을 분석한 프로젝트.</p>
+        <div class="tech">Pandas · EDA · Data Analysis</div>
+        <button class="detail-btn" data-modal="modal-gwh">자세히 보기 →</button>
+      </div>
+
+      <!-- 7. DRONE -->
+      <div class="card">
+        <h3>아두이노 드론 손동작 제어 시스템</h3>
+        <div class="date">2025.10</div>
+        <p>IMU 센서를 활용한 드론 손동작 제어 시스템 제작.</p>
+        <div class="tech">Arduino · Embedded Systems</div>
+        <button class="detail-btn" data-modal="modal-drone">자세히 보기 →</button>
+      </div>
+
+      <!-- 8. LIGHT -->
+      <div class="card">
+        <h3>기숙사 자동 소등기</h3>
+        <div class="date">2025.05~08</div>
+        <p>시간 기반 자동 조명 제어 시스템 제작.</p>
+        <div class="tech">Arduino · IoT</div>
+        <button class="detail-btn" data-modal="modal-light">자세히 보기 →</button>
+      </div>
+
+      <!-- 9. RHYTHM -->
+      <div class="card">
+        <h3>아두이노 리듬게임기</h3>
+        <div class="date">2026.03~Now</div>
+        <p>아두이노 기반 리듬게임 하드웨어 및 소프트웨어 제작 프로젝트.</p>
+        <div class="tech">Arduino · Real-time Processing</div>
+        <button class="detail-btn" data-modal="modal-rhythm">자세히 보기 →</button>
+      </div>
+
+      <!-- 10. N-D -->
+      <div class="card">
+        <h3>N차원 회전 행렬 시각화 프로젝트</h3>
+        <div class="date">2024</div>
+        <p>고차원 회전 변환을 시각적으로 탐색하기 위한 프로젝트.</p>
+        <div class="tech">Python · Linear Algebra · Visualization</div>
+        <button class="detail-btn" data-modal="modal-nd">자세히 보기 →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section>
+    <h2>4. Research</h2>
+    <div class="card">
+      <h3>신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석</h3>
+      <div class="date">2026.04~Now</div>
+      <p>
+        딥러닝 모델이 복잡한 구조를 가진 데이터를 학습할 때 표현 공간을 왜곡하며
+        일반화에 실패할 수 있다는 가설을 바탕으로 진행 중인 개인 연구입니다.
+      </p>
+      <div class="tech">Representation Learning · Geometry · Topology</div>
+      <button class="detail-btn" data-modal="modal-research">자세히 보기 →</button>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section>
+    <h2>5. Activities</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>2026 과학한마당 사이언스 골든벨</h3>
+        <div class="date">출제 및 호스트</div>
+        <p>정보·알고리즘 분야 문제를 직접 출제하고 행사 진행에도 참여했습니다.</p>
+        <div class="tech">Algorithms · Problem Design</div>
+        <button class="detail-btn" data-modal="modal-goldenbell">자세히 보기 →</button>
+      </div>
+
+      <div class="card">
+        <h3>아두이노 입문 강연</h3>
+        <div class="date">2025</div>
+        <p>교내 동아리 신입생 약 50명을 대상으로 아두이노 기초 강연 진행.</p>
+        <div class="tech">Arduino · Education</div>
+        <button class="detail-btn" data-modal="modal-lecture">자세히 보기 →</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <h2>6. Contact</h2>
+    <div class="about-box">
+      <p>Email: srchae99@gmail.com</p>
+      <p>GitHub: github.com/1213anthony</p>
+      <br>
+      <p>Seoul Science High School</p>
+      <p>Republic of Korea</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Jeong-Woo Son Portfolio
+  </footer>
+
+</div>
+
+
+<!-- ============================================ -->
+<!--                  MODALS                     -->
+<!-- ============================================ -->
+
+<!-- 1. ROBOT -->
+<div class="modal" id="modal-robot">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2026 진행 중</span>
+      <h2>로봇 머신러닝 기반 이동 최적화</h2>
+      <p class="modal-tech">Python · Machine Learning · Robotics · Simulation</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>프로젝트 개요</h3>
+        <ul>
+          <li>로봇 이동 제어를 머신러닝으로 최적화하는 과제연구</li>
+          <li>실제 하드웨어 제작 전 시뮬레이션 환경에서 사전 검증</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>접근 방식</h3>
+        <ul>
+          <li>시뮬레이션에서 이동 패턴·제어 안정성 검증</li>
+          <li>로봇 움직임 데이터 기반 제어 성능 비교</li>
+          <li>반복 실험으로 안정적인 이동 조건 탐색</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>진행 상황</h3>
+        <ul>
+          <li>현재: 시뮬레이션 환경 검증 진행 중</li>
+          <li>예정: 실제 물리 로봇에 적용 (sim-to-real 검증)</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="robot_1.jpg" alt="로봇 사진 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">로봇 사진 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="robot_2.jpg" alt="로봇 사진 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">로봇 사진 2</span>
+          </div>
+          <div class="attachment-item attachment-video">
+            <video src="robot_video.mp4" controls onerror="this.parentElement.classList.add('placeholder')"></video>
+            <span class="attachment-caption">시연 영상</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 2. GEMINI -->
+<div class="modal" id="modal-gemini">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2026.04</span>
+      <h2>Gemini LaTeX 렌더링 복원 확장 프로그램</h2>
+      <p class="modal-tech">JavaScript · Chrome Extension · DOM Parsing · LaTeX</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>해결한 문제</h3>
+        <ul>
+          <li>Gemini에서 일부 LaTeX 수식이 깨져서 렌더링됨</li>
+          <li>버전 업그레이드 후에도 개선되지 않음</li>
+          <li>직접 크롬 확장 프로그램 제작해 해결</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>구현 방식</h3>
+        <ul>
+          <li>DOM 분석 — Gemini 페이지 구조에서 깨진 패턴 파악</li>
+          <li>깨진 수식 탐지 — 비정상 LaTeX 문자열 자동 감지</li>
+          <li>문자열 재파싱 — 올바른 LaTeX 형태로 복원</li>
+          <li>실시간 렌더링 — 페이지에 즉시 반영</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 3. N-ARY -->
+<div class="modal" id="modal-nary">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2025.11</span>
+      <h2>N진 탐색 알고리즘의 효율성과 하드웨어 상관관계 분석</h2>
+      <p class="modal-tech">Algorithms · Number Theory · Hardware · Optimization</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>탐구 동기</h3>
+        <ul>
+          <li>이진 탐색을 일반화한 n진 탐색 구조의 수학적 분석</li>
+          <li>실제 하드웨어 환경에서의 효율성 탐구</li>
+          <li>"왜 그런가"를 수학과 하드웨어 양쪽에서 설명</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>1. 수학적 모델링</h3>
+        <ul>
+          <li>비교 횟수 모델링: <code>f(n) = (n−1)/ln n</code></li>
+          <li>이론적 최적값: 자연상수 <strong>e (≈ 2.718)</strong></li>
+          <li>정수 후보: n=2, n=3</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>2. 이론 vs 실제 — 왜 n=2가 표준인가</h3>
+        <ul>
+          <li>탐색: n=3은 트리 깊이는 감소하지만 추가 비교 연산 필요</li>
+          <li>비트 시프트(<code>&gt;&gt; 1</code>) 연산 불가 → 하드웨어 손실</li>
+          <li>정렬: Java dual-pivot quicksort (n=3) 사례 분석</li>
+          <li>대용량 데이터에서 n=3이 비교 횟수 약 10% 감소</li>
+          <li>캐시 적중률 최적화로 이득</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>3. 도출한 통찰</h3>
+        <ul>
+          <li>알고리즘 효율 = 수학적 연산량 + CPU 연산 구조 + 메모리 계층</li>
+          <li>최적 알고리즘은 고정되어 있지 않음</li>
+          <li>데이터 특성과 시스템 환경에 따라 유연하게 선택</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>핵심 흐름</h3>
+        <p class="modal-flow">
+          이론(수학) → 검증(구현/실험) → 통찰(하드웨어 이해)
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 4. PATH -->
+<div class="modal" id="modal-path">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2025.05~06</span>
+      <h2>학교 건물 최단경로 안내 시스템</h2>
+      <p class="modal-tech">Python · Dijkstra · Graph · Pathfinding</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>문제 인식</h3>
+        <ul>
+          <li>학교 건물 구조가 복잡해 학생들이 길을 자주 헤맴</li>
+          <li>단순 안내도로 해결되지 않는 상황 존재 (비, 경유지 등)</li>
+          <li>알고리즘 기반 안내 시스템 제작</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>구현 방식</h3>
+        <ul>
+          <li>그래프 모델링 — 건물 내부를 노드/엣지로 구조화</li>
+          <li>엣지 속성: 이동 시간, 실내/실외 여부 등</li>
+          <li>Dijkstra 알고리즘 기반 최단 경로 탐색</li>
+          <li>날씨 옵션 — 비 오는 날 실내 경로 우선</li>
+          <li>경유지 설정 — 특정 장소를 거치는 경로 탐색</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item attachment-file">
+            <a href="path_presentation.pdf" target="_blank">
+              <div class="file-icon">📄</div>
+              <span class="attachment-caption">발표 자료 (PDF)</span>
+            </a>
+          </div>
+          <div class="attachment-item">
+            <img src="path_1.jpg" alt="시스템 화면 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">시스템 화면 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="path_2.jpg" alt="시스템 화면 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">시스템 화면 2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 5. SHEEP -->
+<div class="modal" id="modal-sheep">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2025.09~11</span>
+      <h2>문명: Sheep — 양치기 소년 전략 게임</h2>
+      <p class="modal-tech">Python · OOP · Game Development · Pygame</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>기획 배경</h3>
+        <ul>
+          <li>모티프: 우화 「늑대와 양치기 소년」</li>
+          <li>장르: 턴 기반 전략 게임</li>
+          <li>핵심: 거짓말과 진실 사이의 선택이 게임 진행에 영향</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>주요 시스템</h3>
+        <ul>
+          <li>신뢰도 시스템 — 행동에 따라 마을 신뢰도 변화, 엔딩 분기에 반영</li>
+          <li>턴 기반 전략 — 자원 관리, 행동 선택, 결과 처리</li>
+          <li>미니게임 — 메인 플레이 사이 다양한 미니게임 삽입</li>
+          <li>업그레이드 구조 — 진행에 따른 능력 발전 시스템</li>
+          <li>그래픽 및 UI 작업 일부 담당</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>맡은 역할</h3>
+        <ul>
+          <li>미니게임 시스템 설계·구현</li>
+          <li>업그레이드 구조 설계</li>
+          <li>일부 그래픽 및 UI 작업</li>
+          <li>객체지향 구조로 컴포넌트 모듈화</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item attachment-file">
+            <a href="sheep_presentation.pdf" target="_blank">
+              <div class="file-icon">📄</div>
+              <span class="attachment-caption">발표 자료 (PDF)</span>
+            </a>
+          </div>
+          <div class="attachment-item">
+            <img src="sheep_1.jpg" alt="게임 스크린샷 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">게임 화면 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="sheep_2.jpg" alt="게임 스크린샷 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">게임 화면 2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 6. GWANGHWAMUN -->
+<div class="modal" id="modal-gwh">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2026.04~Now</span>
+      <h2>광화문 도로 통제 사회적 손해비용 EDA</h2>
+      <p class="modal-tech">Pandas · NumPy · EDA · Public Data · Cost-Benefit Analysis</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>탐구 동기</h3>
+        <ul>
+          <li>2026년 3월 광화문 도로 통제 시행</li>
+          <li>보도는 "정체 심각하다"는 정성적 평가만 다룸</li>
+          <li>실제 사회적 손해를 공공데이터로 정량화</li>
+          <li>KOTI 교통혼잡비용 모델 응용</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>데이터 및 방법론</h3>
+        <ul>
+          <li>데이터: 서울 열린데이터광장 공공데이터 4종</li>
+          <li>(교통량, 통행속도, 버스 노선, 승하차 인원)</li>
+          <li>설계: 대조군(3.13~15) vs 실험군(3.20~22) 비교</li>
+          <li>비용 분해: 시간손실 · 차량운행비 · 연료비 · 사고비용 · 환경비용</li>
+          <li>분석 단위: 4개 주요 도로 × 시간대별</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>주요 결과</h3>
+        <ul>
+          <li>직접 손해비용: <strong>약 1.5억 원</strong> (3일간, 차량 통행 기준)</li>
+          <li>버스 우회 · 광역 정체 · 물류 지연 포함: <strong>약 12~21억 원</strong></li>
+          <li>4개 도로 평균 속도 차이: <strong>−3.7%</strong> (작아 보임)</li>
+          <li>세종대로 새벽 02시: <strong>−20.5%</strong> (큰 저하)</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>인사이트</h3>
+        <ul>
+          <li><strong>평균은 진실을 가린다</strong> — 시간대/도로 좁혀야 영향이 드러남</li>
+          <li><strong>영향은 본선 집중</strong> — 세종대로·사직로 저하 vs 종로·율곡로 우회로 역할 (속도 증가)</li>
+          <li><strong>데이터의 한계 인정</strong> — 직접 측정값과 종합 추정치 10배 격차</li>
+          <li>공공데이터로 잡히는 손해는 빙산의 일각</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 7. DRONE -->
+<div class="modal" id="modal-drone">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2025.10</span>
+      <h2>아두이노 드론 손동작 제어 시스템</h2>
+      <p class="modal-tech">Arduino · IMU Sensor · Wireless Control · Embedded</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>프로젝트 개요</h3>
+        <ul>
+          <li>IMU 센서로 손의 기울기·움직임 측정</li>
+          <li>측정값을 드론 제어 신호로 변환</li>
+          <li>조이스틱 대신 직관적인 손동작 조작</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>구현 내용</h3>
+        <ul>
+          <li>센서 데이터 처리 — IMU에서 Roll/Pitch 실시간 수집</li>
+          <li>제어 신호 변환 — 손 각도 → 드론 제어 명령 매핑</li>
+          <li>실시간 통신 — 손 컨트롤러 ↔ 드론 무선 통신</li>
+          <li>안정화 — 센서 잡음 필터링, 데드존 설정</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="drone_1.jpg" alt="드론 사진 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">드론 사진 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="drone_2.jpg" alt="드론 사진 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">드론 사진 2</span>
+          </div>
+          <div class="attachment-item">
+            <img src="drone_3.jpg" alt="드론 사진 3" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">드론 사진 3</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 8. LIGHT -->
+<div class="modal" id="modal-light">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2025.05~08</span>
+      <h2>기숙사 자동 소등기</h2>
+      <p class="modal-tech">Arduino · RTC Module · Relay Circuit · IoT</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>문제 인식</h3>
+        <ul>
+          <li>기숙사에서 불을 끄지 않고 자버리는 일이 잦음</li>
+          <li>매일 같은 시각에 자동 소등하는 장치 필요</li>
+          <li>직접 제작</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>구현 내용</h3>
+        <ul>
+          <li>RTC 기반 시간 제어 — 설정 시각(오전 1시) 자동 소등</li>
+          <li>릴레이 회로 — 실제 전등 전원 직접 제어</li>
+          <li>저비용 설계 — 저렴한 RTC 모듈 사용</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>예상치 못한 문제와 해결</h3>
+        <ul>
+          <li>문제: 저가 RTC 모듈의 시간 오차가 큼</li>
+          <li>오차 측정 — 며칠간 drift 기록</li>
+          <li>일정한 drift 패턴 발견</li>
+          <li>보정 로직 추가로 해결</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="light_1.jpg" alt="자동 소등기 사진 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">자동 소등기 사진 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="light_2.jpg" alt="자동 소등기 사진 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">자동 소등기 사진 2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 9. RHYTHM -->
+<div class="modal" id="modal-rhythm">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2026.03~Now</span>
+      <h2>아두이노 리듬게임기</h2>
+      <p class="modal-tech">Arduino · Real-time Processing · Embedded · Game</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>프로젝트 개요</h3>
+        <ul>
+          <li>버튼 입력 + LED 출력 기반 리듬게임 시스템</li>
+          <li>하드웨어부터 직접 제작</li>
+          <li>입력 판정·점수·노트 시퀀싱·실시간 출력 전부 자체 구현</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>주요 구성 요소</h3>
+        <ul>
+          <li>입력 시스템 — 다중 버튼 동시 처리 (폴링 기반)</li>
+          <li>판정 로직 — 노트 타이밍과 입력 시점 차이 측정</li>
+          <li>점수 시스템 — 콤보, 정확도 등급, 보너스</li>
+          <li>노트 시퀀싱 — 시간 기반 데이터 구조와 출력 스케줄링</li>
+          <li>LED 출력 — 노트 등장과 입력 피드백 실시간 시각화</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="rhythm_1.jpg" alt="리듬게임기 사진 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">리듬게임기 사진 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="rhythm_2.jpg" alt="리듬게임기 사진 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">리듬게임기 사진 2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 10. N-D -->
+<div class="modal" id="modal-nd">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Project · 2024</span>
+      <h2>N차원 회전 행렬 시각화 프로젝트</h2>
+      <p class="modal-tech">Python · Linear Algebra · Visualization · Vibe Coding</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>탐구 동기</h3>
+        <ul>
+          <li>선형대수의 회전 행렬을 시각적으로 이해하고 싶었음</li>
+          <li>특히 3차원 이상 고차원 회전의 직관적 작동 방식</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>구현 내용</h3>
+        <ul>
+          <li>임의 차원 회전 행렬 동적 생성</li>
+          <li>회전 평면 선택 — 사용자가 직접 지정</li>
+          <li>실시간 애니메이션으로 회전 과정 확인</li>
+          <li>고차원 → 저차원 투영 방식 직접 설계</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="nd_1.jpg" alt="시각화 화면" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">시각화 화면</span>
+          </div>
+          <div class="attachment-item attachment-video">
+            <video src="nd_video_1.mp4" controls onerror="this.parentElement.classList.add('placeholder')"></video>
+            <span class="attachment-caption">시연 영상 1</span>
+          </div>
+          <div class="attachment-item attachment-video">
+            <video src="nd_video_2.mp4" controls onerror="this.parentElement.classList.add('placeholder')"></video>
+            <span class="attachment-caption">시연 영상 2</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="modal" id="modal-research">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Research · 2026.04~Now</span>
+      <h2>신경망 표현 공간의 위상적 왜곡과 일반화 한계 분석</h2>
+      <p class="modal-tech">Topology · Differential Geometry · Deep Learning Theory</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>핵심 가설</h3>
+        <ul>
+          <li>신경망의 보간 메커니즘 = 매끄러운 채움(smooth filling)</li>
+          <li>매끄러운 채움 → 호모토피적으로 자명한 채움만 생성 가능</li>
+          <li>비자명한 위상 구조의 합성적 일반화는 원리적으로 실패</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>지금까지 한 것</h3>
+        <ul>
+          <li>선행연구 3편 정밀 분석 (Dupont, Moor, Naitzat)</li>
+          <li>Theorem 1 정식화</li>
+          <li>Toy 실험 6개 완료 (Trefoil knot 기반)</li>
+          <li>위상 임계 차원 검증: dim = 3</li>
+          <li>Jacobian 특이점 분석</li>
+          <li>정규화 손실 대조 실험 — 예측 5/5 적중</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>계획 중인 것</h3>
+        <ul>
+          <li>Theorem 1의 엄밀한 증명 완성</li>
+          <li>실제 AI 벤치마크로 확장 (SCAN, COGS, CFQ)</li>
+          <li>측정 도구 정교화</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>핵심 결과 요약</h3>
+        <div class="result-grid">
+          <div class="result-item">
+            <div class="result-value">5/5</div>
+            <div class="result-label">예측 적중</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">dim = 3</div>
+            <div class="result-label">위상 임계 차원</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">+75.6%</div>
+            <div class="result-label">Writhe 왜곡</div>
+          </div>
+          <div class="result-item">
+            <div class="result-value">진행 중</div>
+            <div class="result-label">증명 작업</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="modal-note">자세한 내용은 첨부 PDF 참고</p>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item attachment-file">
+            <a href="research_paper.pdf" target="_blank">
+              <div class="file-icon">📄</div>
+              <span class="attachment-caption">연구 자료 (PDF)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- GOLDENBELL -->
+<div class="modal" id="modal-goldenbell">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Activity · 2026</span>
+      <h2>2026 과학한마당 사이언스 골든벨</h2>
+      <p class="modal-tech">Problem Design · Host · Algorithms · CS Fundamentals</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>역할</h3>
+        <ul>
+          <li>소속: "국가사이버안보대응팀" 출제팀</li>
+          <li>정보·알고리즘 분야 문제 직접 출제</li>
+          <li>행사 호스트 참여</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>출제한 문제들</h3>
+
+        <div class="quiz-list">
+          <div class="quiz-item">
+            <div class="quiz-tag">비트 마스킹</div>
+            <h4>악성 코드 위치 찾기</h4>
+            <ul>
+              <li>상황: 30개 서버 중 1개에 악성코드, 잠복기 1시간 분석기 5개</li>
+              <li>조건: 단 1회 만에 위치 특정</li>
+              <li>풀이: 분석기 5개를 이진법 5자리에 매핑</li>
+              <li>소멸한 분석기 패턴 = 위치</li>
+              <li>32개까지 확장 가능</li>
+            </ul>
+            <span class="quiz-ref">참고: The 1,000 Wine Bottles Puzzle</span>
+          </div>
+
+          <div class="quiz-item">
+            <div class="quiz-tag">동적 프로그래밍</div>
+            <h4>2-Eggs Problem — 임계 전압 최소 테스트</h4>
+            <ul>
+              <li>범위: 1~100MV 사이 임계 전압</li>
+              <li>조건: 저항기 2개, 깨지면 끝</li>
+              <li>풀이: 점진적 간격 전략</li>
+              <li><code>1+2+…+N ≥ 100</code> → <strong>N=14</strong></li>
+            </ul>
+            <span class="quiz-ref">참고: 2-Eggs Problem</span>
+          </div>
+
+          <div class="quiz-item">
+            <div class="quiz-tag">불변량</div>
+            <h4>어두운 방의 동전</h4>
+            <ul>
+              <li>상황: 앞면 10개·뒷면 90개 동전, 어두운 방</li>
+              <li>조건: 10개 추출 후 양쪽 앞면 수 일치</li>
+              <li>풀이: 추출한 10개 전부 뒤집기</li>
+              <li>핵심: <em>x ↔ 10−x</em> 대칭성</li>
+            </ul>
+            <span class="quiz-ref">참고: 100 Coins in a Dark Room</span>
+          </div>
+
+          <div class="quiz-item">
+            <div class="quiz-tag">정보 상식</div>
+            <h4>Tupper's 자기언급 공식 — 17의 의미</h4>
+            <ul>
+              <li>주제: "자기 자신을 그리는 함수"</li>
+              <li>질문: 공식 속 <code>17</code>의 역할</li>
+              <li>정답: 비트맵의 높이</li>
+              <li><code>mod(y, 17)</code> → 세로 길이 17픽셀 제한</li>
+            </ul>
+            <span class="quiz-ref">참고: Tupper's self-referential formula</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item">
+            <img src="goldenbell_1.jpg" alt="골든벨 사진 1" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">행사 사진 1</span>
+          </div>
+          <div class="attachment-item">
+            <img src="goldenbell_2.jpg" alt="골든벨 사진 2" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">행사 사진 2</span>
+          </div>
+          <div class="attachment-item">
+            <img src="goldenbell_3.jpg" alt="골든벨 사진 3" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">행사 사진 3</span>
+          </div>
+          <div class="attachment-item">
+            <img src="goldenbell_4.jpg" alt="골든벨 사진 4" onerror="this.parentElement.classList.add('placeholder')">
+            <span class="attachment-caption">행사 사진 4</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- LECTURE -->
+<div class="modal" id="modal-lecture">
+  <div class="modal-overlay" data-close></div>
+  <div class="modal-content">
+    <button class="modal-close" data-close>&times;</button>
+    <div class="modal-header">
+      <span class="modal-badge">Activity · 2025</span>
+      <h2>아두이노 입문 강연 — 사고뭉치(사뭉) 동아리</h2>
+      <p class="modal-tech">Arduino · Education · Public Speaking</p>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="modal-section">
+        <h3>강연 개요</h3>
+        <ul>
+          <li>대상: 교내 동아리 '사고뭉치(사뭉)' 신입생 약 50명</li>
+          <li>주제: 아두이노 입문</li>
+          <li>방향: 도구의 필요성부터 직접 회로 동작까지</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>강의 구성</h3>
+        <ul>
+          <li>아두이노란? — 마이크로컨트롤러 보드 개념, HW/SW 통합 환경</li>
+          <li>회로의 기본 — 브레드보드, 저항·LED·점퍼선</li>
+          <li>아두이노 IDE — 코드 작성, 업로드, 시리얼 모니터</li>
+          <li>핵심 함수 — <code>pinMode</code>, <code>digitalWrite</code>, <code>digitalRead</code>, <code>delay</code>, <code>analogRead</code></li>
+          <li>실습 — LED 점등, 버튼 입력, 가변저항, 시리얼 통신</li>
+          <li>응용 — 센서 기반 자동화 시스템 예시</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>강의 방식</h3>
+        <ul>
+          <li>실습 위주 구성</li>
+          <li>강의 시간 안에 직접 LED 점등·버튼 입력 체험</li>
+          <li>하드웨어와 코드의 연결을 직관적으로 전달</li>
+        </ul>
+      </div>
+
+      <div class="modal-attachments">
+        <h3>관련 첨부 자료</h3>
+        <div class="attachment-grid">
+          <div class="attachment-item attachment-file">
+            <a href="lecture_slides.pdf" target="_blank">
+              <div class="file-icon">📄</div>
+              <span class="attachment-caption">강연 자료 (PDF)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>

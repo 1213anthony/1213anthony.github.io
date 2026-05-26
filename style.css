@@ -1,0 +1,648 @@
+/* ============================================ */
+/*          BASE — 어제 작업하신 디자인 유지       */
+/* ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(to bottom, #eef7ff, #ffffff);
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+.container {
+  width: min(1400px, 92%);
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.school {
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+.subtitle {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #475569;
+  font-size: 1.1rem;
+}
+
+section {
+  margin-bottom: 70px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #0f172a;
+  border-left: 6px solid #7dd3fc;
+  padding-left: 14px;
+}
+
+.about-box {
+  background: white;
+  padding: 30px;
+  border-radius: 22px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.tech {
+  margin-top: 14px;
+  color: #0284c7;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.course-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+footer {
+  text-align: center;
+  padding: 50px 0 20px;
+  color: #64748b;
+}
+
+a {
+  color: #0284c7;
+  text-decoration: none;
+}
+
+code {
+  font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  font-size: 0.88em;
+  background: #eff6ff;
+  color: #0284c7;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* ============================================ */
+/*         자세히 보기 버튼                       */
+/* ============================================ */
+.detail-btn {
+  margin-top: 18px;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.detail-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+.detail-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================ */
+/*                MODAL                          */
+/* ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+  overflow-y: auto;
+}
+
+.modal.open {
+  display: flex;
+  animation: modalFadeIn 0.25s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  max-width: 880px;
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e2e8f0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  z-index: 2;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  padding: 36px 40px 28px;
+  background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.modal-header h2 {
+  font-size: 1.7rem;
+  color: #0f172a;
+  margin-bottom: 10px;
+  border-left: none;
+  padding-left: 0;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
+.modal-tech {
+  color: #0284c7;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 32px 40px 40px;
+}
+
+.modal-section {
+  margin-bottom: 28px;
+}
+
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e0f2fe;
+  letter-spacing: -0.01em;
+}
+
+.modal-section p {
+  color: #334155;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.modal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-section ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 10px;
+  color: #334155;
+  line-height: 1.75;
+  font-size: 0.97rem;
+}
+
+.modal-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  width: 6px;
+  height: 6px;
+  background: #0ea5e9;
+  border-radius: 50%;
+}
+
+.modal-section ul li strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.modal-quote {
+  font-style: italic;
+  padding: 18px 24px;
+  background: #f0f9ff;
+  border-left: 4px solid #0ea5e9;
+  border-radius: 8px;
+  color: #0c4a6e !important;
+  line-height: 1.75 !important;
+}
+
+.modal-flow {
+  padding: 14px 20px;
+  background: #f0f9ff;
+  border-radius: 10px;
+  color: #0c4a6e !important;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modal-note {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: #f8fafc;
+  border-radius: 8px;
+  color: #64748b !important;
+  font-size: 0.9rem;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================ */
+/*       모달 - 결과 그리드 (연구용)               */
+/* ============================================ */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.result-item {
+  background: #f8fafc;
+  padding: 18px 16px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.result-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* ============================================ */
+/*       모달 - 골든벨 퀴즈 리스트                 */
+/* ============================================ */
+.quiz-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.quiz-item {
+  background: #f8fafc;
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.quiz-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.quiz-item h4 {
+  font-size: 1.02rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.quiz-item p {
+  font-size: 0.93rem;
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.quiz-ref {
+  display: block;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-family: "JetBrains Mono", monospace;
+  margin-top: 6px;
+}
+
+/* ============================================ */
+/*           모달 - 첨부 자료 갤러리              */
+/* ============================================ */
+.modal-attachments {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 2px dashed #e0f2fe;
+}
+
+.modal-attachments h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.attachment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+}
+
+.attachment-item {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.attachment-item:hover {
+  border-color: #0ea5e9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.12);
+}
+
+.attachment-item img,
+.attachment-item video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f8fafc;
+}
+
+.attachment-item video {
+  background: #0f172a;
+}
+
+.attachment-caption {
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  color: #0369a1;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+}
+
+/* 파일(PDF) 첨부 카드 */
+.attachment-file a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 24px 12px 12px;
+  color: inherit;
+}
+
+.attachment-file .file-icon {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(2, 132, 199, 0.2));
+}
+
+.attachment-file:hover {
+  background: #e0f2fe;
+}
+
+/* 이미지/영상이 로드 실패 시 placeholder 표시 */
+.attachment-item.placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    #f0f9ff,
+    #f0f9ff 10px,
+    #e0f2fe 10px,
+    #e0f2fe 20px
+  );
+  position: relative;
+}
+
+.attachment-item.placeholder img,
+.attachment-item.placeholder video {
+  display: none;
+}
+
+.attachment-item.placeholder::before {
+  content: "📷 자료 업로드 예정";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  color: #0369a1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.attachment-video.placeholder::before {
+  content: "🎬 영상 업로드 예정";
+}
+
+/* ============================================ */
+/*                반응형                          */
+/* ============================================ */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .modal {
+    padding: 20px 12px;
+  }
+
+  .modal-header {
+    padding: 28px 24px 22px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.35rem;
+  }
+
+  .modal-body {
+    padding: 24px 24px 30px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+  }
+
+  .attachment-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .attachment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 스크롤바 (모달 안) */
+.modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.3);
+  border-radius: 999px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 132, 199, 0.5);
+}
+
+/* 모달 열렸을 때 body 스크롤 잠금 */
+body.modal-open {
+  overflow: hidden;
+}
